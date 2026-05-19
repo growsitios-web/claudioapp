@@ -175,7 +175,7 @@ function runStep4() {
     // 4. Primera vez - Menú de 6 opciones
     addBotMessage("¿En qué te puedo ayudar hoy?");
     renderOptions([
-        { label: "Contratar plan Telcel (Primera vez)", action: () => { state.clientType = 'primera_vez'; runStep5(); } },
+        { label: "Quiero un equipo con plan (Primera vez)", action: () => { state.clientType = 'primera_vez'; runStep5(); } },
         { label: "Actualizar mi plan (Renovación)", action: () => { state.clientType = 'renovacion'; runStep5(); } },
         { label: "Línea adicional", action: () => { state.clientType = 'adicional'; runStep5(); } },
         { label: "Portabilidad", action: () => { state.clientType = 'portabilidad'; runStep5(); } },
@@ -405,10 +405,10 @@ function searchAndQuote(query) {
         let prepagoText = (isCombo && prepago === 0) ? "Promoción Especial" : `$${prepago.toLocaleString('es-MX')}`;
         let modelo = cleanModelName(item.MODELO);
         
-        html += `• <b>${modelo}</b><br><span style="font-size:0.85rem; color:#555;">Precio Prepago: ${prepagoText}</span><br><br>`;
+        html += `• <b>${modelo}</b><br><span style="font-size:0.85rem; color:#555;">Precio en Telcel prepago: ${prepagoText}</span><br><br>`;
     });
     
-    html += `Para calcularte cómo quedaría en un Plan de Renta mensual, <b>¿aproximadamente de cuánto es tu presupuesto al mes?</b>`;
+    html += `¿Te gustaría ver el financiamiento en planes (principales planes Libre y Ultra)? Para calcularte cómo quedaría, <b>¿aproximadamente de cuánto es tu presupuesto al mes?</b>`;
     
     addBotMessage(html, true);
     
